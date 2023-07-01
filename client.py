@@ -62,6 +62,9 @@ def main():
     sports_prompt()
     file_prompt()
 
+    # create socket
+    client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
 
 if __name__ == "__main__":
     main()
