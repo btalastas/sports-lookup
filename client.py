@@ -33,9 +33,13 @@ def main():
         print("Which sports are you looking for?\n1. NBA\t2. MLB\n3. NFL\tNHL\n")
 
         sports_category = input()
-        if int(sports_category) < 0 or int(sports_category) > 4:
+        if (
+            not sports_category.isdigit()
+            or int(sports_category) < 0
+            or int(sports_category) > 4
+        ):
             print("Enter valid number.")
-            pass
+            continue
         sport = SPORTS.get(int(sports_category))
         if sport is not None:
             break
@@ -44,13 +48,17 @@ def main():
 
     while True:
         print("What file format do you want the data to be saved in?\n1. JSON\t2. CSV")
-        file_format = int(input())
+        file_format = input()
 
-        if file_format < 0 or file_format > 2:
+        if not file_format.isdigit() or int(file_format) < 0 or int(file_format) > 2:
             print("Enter valid number.")
-            pass
+            continue
+        file_type = FILE_FORMAT.get(int(file_format))
 
-    print(sport)
+        if file_type is not None:
+            break
+        else:
+            print("Enter valid number.")
 
 
 if __name__ == "__main__":
