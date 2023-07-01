@@ -51,12 +51,11 @@ def file_prompt():
 def main():
     args = sys.argv[1:]
     if len(args) != 2:
-        sys.stderr.write("Error running program. ./client.py <port-#> <IP-Address>")
+        sys.stderr.write("Error running program. ./client.py <IP-Address> <port-#>")
     print(f"{LINE_BREAKER}\n\n{WELCOME_MESSAGE}\n\n{LINE_BREAKER}\n\n")
 
-    # args[0] -> port number; args[1] -> server ip address
-    server_address = (int(args[0]), args[1])
-
+    # args[0] -> server ip address  args[1] -> port number
+    server_address = (args[0], int(args[1]))
     # ask user for preferences
     # sports type and save file type
     sports_prompt()
