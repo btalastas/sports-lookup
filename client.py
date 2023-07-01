@@ -1,12 +1,8 @@
 #!/usr/bin/env python3
-from ast import IsNot
-import numbers
 import sys
 import threading
 import socket
 
-
-from zmq import NULL
 
 # need socket, data processing thread function.
 
