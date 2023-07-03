@@ -37,7 +37,7 @@ git clone https://github.com/btalastas/sports-lookup.git
 
 ## Authors
 
-Bjorn Talastas [email] (<btalasta@gmu.edu>)
+Bjorn Talastas [email](<btalasta@gmu.edu> "btalasta@gmu.edu")
 
 ## License
 
