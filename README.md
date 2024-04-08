@@ -2,20 +2,20 @@
 
 ## ***Description***
 
-Request and download various sport datasets from the server host.
-
-* Client connects to server through TCP connection.
-* The server sends a message to the client with a prompt after establishing a connection.
-* The client answers the prompt sent to the receiver and sends a message back to the server.
-* Server sends back dataset depending on the client's message and waits for any further requests.
-* Inside of a different thread, the client receives the dataset and converts it to its preferred file format type.
-* Decide to close the connection and use the downloaded dataset and convert it into a dataframe or NumPy array.
+Lookup MLB stats for analyzing matchups between teams and players.
 
 ## ***Functionalities***
 
-* Download a file from server host through a persistent connection.
-* Save file within the directory as a JSON or CSV.
-* Perform search and sort
+- Get MLB schedule for current day.
+- Get pitcher stats for season
+
+### ***Future functions***
+
+- Pitcher stats vs current opponent
+- Pitcher/Batter stats last 5/10 games
+- Plots for types of pitches pitchers throw and its success
+- Plots for batter statistics
+- Genereate JSON to be used for aws lambda
 
 ## ***Getting started***
 
@@ -27,13 +27,19 @@ Navigate to a directory and run the command.
 git clone https://github.com/btalastas/sports-lookup.git
 ```
 
+There are various Python packages in order for these programs to work. Navigate to the `sports-lookup` directory and run the following command.
+
+```sh
+pip3 install -r requirements.txt
+```
+
 ### *Executing Program*
 
-* Work in progress
+- Work in progress
 
 ### *Dependencies*
 
-* Python 3.x
+- Python 3.x
 
 ## Authors
 
@@ -42,4 +48,3 @@ Bjorn Talastas [email](<btalasta@gmu.edu> "btalasta@gmu.edu")
 ## License
 
 This project is licensed under the MIT License - see the LICENSE.md file for details
-
