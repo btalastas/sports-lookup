@@ -27,7 +27,7 @@ Navigate to a directory and run the command.
 git clone https://github.com/btalastas/sports-lookup.git
 ```
 
-There are various Python packages in order for these programs to work. Navigate to the `sports-lookup` directory and run the following command.
+There are various Python packages in order for these programs to work. Navigate to the `sports-lookup` directory and run the following command in your terminal.
 
 ```sh
 pip3 install -r requirements.txt
