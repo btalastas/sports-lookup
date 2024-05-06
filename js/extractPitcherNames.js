@@ -14,3 +14,5 @@ const extractPitchers = (schedule) => {
   });
   return pitchers;
 };
+
+export default extractPitchers;
