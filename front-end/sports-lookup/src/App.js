@@ -1,47 +1,56 @@
-import {useEffect, useState} from 'react';
-import logo from './logo.svg';
-import './App.css';
-import HeaderNav from './header-nav';
-import { Container, Typography } from '@mui/material';
-import data from './Data.json';
+import { useEffect, useRef, useState } from "react";
+import HeaderNav from "./header-nav.jsx";
+import { Container } from "@mui/material";
+import fetch from "node-fetch";
+
 
 function App() {
-  
-  const fetchUrl = "https://yl4lgoitba.execute-api.us-east-1.amazonaws.com/prod/mlb_schedule"
 
-  let displayData
-  
-  function pullJson(){
-    fetch(fetchUrl, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        // Add any additional headers if needed
-        // 'Access-Control-Allow-Origin': '*' // This header might help, but it's usually set on the server side
-      }
-    })
-    .then(res => res.json())
-    .then(resData => {
-      displayData = resData.map(function(baseball){
-        return(
-        <p></p>
-        )
-      })
-      console.log(resData)
-    })
-  }
+  const [res, setRes] = useState([]);
+  const hasFetchedData = useRef(false);
+  // const hasFetchedStandings = useRef(false);
 
+  const url =
+    "https://yl4lgoitba.execute-api.us-east-1.amazonaws.com/prod/mlb_schedule";
+
+  // const standingsURL =
+  //   "https://yl4lgoitba.execute-api.us-east-1.amazonaws.com/prod/mlb_standings";
+
+  const fetchData = (() => {
+      fetch(url)
+      .then((response) => response.json()) // Parsing the JSON response
+      .then((data) => setRes(data))
+      .catch((error) => console.error("Error fetching data:", error));
+  })
   useEffect(() => {
-    pullJson()
-  },[])
+
+    if (hasFetchedData.current === false) {
+      fetchData();
+      hasFetchedData.current = true;
+    } 
+  }, []);
+
+
+  // const fetchStandings = (() => {
+  //   fetch(standingsURL, {
+  //     mode: "cors",
+  //     method: "GET",
+  //     headers: { "Content-Type": "application/json" },
+  //   })
+  //     .then((response) => response.json()) // Parsing the JSON response
+  //     .then((data) => console.log(data))
+  //     .catch((error) => console.error("Error fetching data:", error));
+  // })
+
+  
+
 
   return (
-    <Container sx={{height: "100vh"}}>
-        <Container width={false} disableGutters sx={{marginTop: 5, height: '6vh'}}>
-          <HeaderNav />
-        </Container>
-        <Typography></Typography>
-    </Container>  
+    <Container sx={{ height: "100vh" }}>
+      <Container sx={{padding: 0, width: "300vh"}}>
+        {/* <HeaderNav res={res}/> */}
+      </Container>
+    </Container>
   );
 }
 
