@@ -4,6 +4,11 @@ import fetch from "node-fetch";
 // const url =
 //   "https://yl4lgoitba.execute-api.us-east-1.amazonaws.com/prod/mlb_schedule";
 
+/**
+ *
+ * @param {String} url AWS API url.
+ * @returns {Object} JSON of mlb games for current day.
+ */
 const fetchSchedule = async (url) => {
   try {
     const response = await fetch(url);
