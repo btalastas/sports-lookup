@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import HeaderNav from "./header-nav.jsx";
 import { Container, CircularProgress } from "@mui/material";
-import fetch from "node-fetch";
 
 import fetchSchedule from "./utils/fetch_schedule.js";
 import fetchStandings from "./utils/fetch_standings.js";
@@ -18,16 +17,6 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // const [res, setRes] = useState([]);
-  // const hasFetchedData = useRef(false);
-  // const hasFetchedStandings = useRef(false);
-
-  // const fetchData = () => {
-  //   fetch(url)
-  //     .then((response) => response.json()) // Parsing the JSON response
-  //     .then((data) => setRes(data))
-  //     .catch((error) => console.error("Error fetching data:", error));
-  // };
   useEffect(() => {
     const scheduleData = fetchSchedule(
       process.env.REACT_APP_MLB_SCHEDULE_API_URL
@@ -62,10 +51,10 @@ function App() {
   if (error) {
     return <p>Error: {error}</p>;
   }
-  console.log(standings);
+
   return (
-    <Schedule games={games} />
-    // <Standings />
+    // <Schedule games={games} />
+    <Standings standings={standings} />
     // <Container sx={{ height: "100vh" }}>
 
     //   <Container sx={{ padding: 0, width: "300vh" }}>
