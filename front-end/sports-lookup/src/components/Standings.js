@@ -10,8 +10,9 @@ import {
 } from "@mui/material";
 
 import {
-  createLeagueStandings,
   calculatePercentage,
+  createAllStandings,
+  createLeagueStandings,
 } from "../utils/standingsUtils";
 
 export default function Standings({ standings }) {
