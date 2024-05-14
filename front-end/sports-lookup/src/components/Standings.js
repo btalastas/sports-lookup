@@ -9,6 +9,11 @@ import {
   Typography,
 } from "@mui/material";
 
+import {
+  createLeagueStandings,
+  calculatePercentage,
+} from "../utils/standingsUtils";
+
 export default function Standings({ standings }) {
   return (
     <div>
@@ -50,7 +55,7 @@ export default function Standings({ standings }) {
                     <TableCell align="right">{team.l}</TableCell>
                     <TableCell align="right">{team.gb}</TableCell>
                     <TableCell align="right">
-                      {/* {calculatePercentage(team.w, team.l)}% */}
+                      {calculatePercentage(team.w, team.l)}%
                     </TableCell>
                   </TableRow>
                 ))}
