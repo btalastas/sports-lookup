@@ -10,9 +10,6 @@ import {
 } from "@mui/material";
 
 export default function Standings({ standings }) {
-  const calculatePercentage = (wins, losses) => {
-    return ((wins / (wins + losses)) * 100).toFixed(1);
-  };
   return (
     <div>
       {Object.entries(standings).map(([divisionId, division]) => {
@@ -53,7 +50,7 @@ export default function Standings({ standings }) {
                     <TableCell align="right">{team.l}</TableCell>
                     <TableCell align="right">{team.gb}</TableCell>
                     <TableCell align="right">
-                      {calculatePercentage(team.w, team.l)}%
+                      {/* {calculatePercentage(team.w, team.l)}% */}
                     </TableCell>
                   </TableRow>
                 ))}
