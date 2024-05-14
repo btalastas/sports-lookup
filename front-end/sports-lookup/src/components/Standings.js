@@ -13,7 +13,7 @@ import {
   calculatePercentage,
   createAllStandings,
   createLeagueStandings,
-} from "../utils/standingsUtils";
+} from "../utils/standingsUtils.js";
 
 export default function Standings({ standings }) {
   return (
