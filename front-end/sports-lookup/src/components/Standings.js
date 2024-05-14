@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from "react";
 import {
-  CircularProgress,
   Table,
   TableBody,
   TableCell,
