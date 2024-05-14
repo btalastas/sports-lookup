@@ -1,8 +1,5 @@
 import fetch from "node-fetch";
 
-const url =
-  "https://yl4lgoitba.execute-api.us-east-1.amazonaws.com/prod/mlb_standings";
-
 /**
  * Fetches aws api for MLB standings.
  *
