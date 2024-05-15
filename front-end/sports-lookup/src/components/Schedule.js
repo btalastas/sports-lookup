@@ -9,6 +9,12 @@ import {
 
 import { getDate } from "../utils/getDate.js";
 
+/**
+ * MLB schedule component that lists the current games, pitchers, and pitcher stats.
+ *
+ * @param {Object} param0 MLB schedule object from aws api.
+ * @returns A list of scheduled MLB games for the current date.
+ */
 export default function Schedule({ games }) {
   return (
     <Card raised style={{ margin: "20px", backgroundColor: "#fafafa" }}>

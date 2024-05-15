@@ -12,9 +12,16 @@ import {
 import {
   calculatePercentage,
   createAllStandings,
+  createDivisionStandings,
   createLeagueStandings,
 } from "../utils/standingsUtils.js";
 
+/**
+ * MLB standings component. Can change to division, league, or all standings.
+ *
+ * @param {Object} param0 MLB standings object from aws api.
+ * @returns Table for the given standings
+ */
 export default function Standings({ standings }) {
   return (
     <div>

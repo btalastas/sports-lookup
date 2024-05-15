@@ -1,9 +1,7 @@
 import fetch from "node-fetch";
 
-const url =
-  "https://yl4lgoitba.execute-api.us-east-1.amazonaws.com/prod/pitching_stats";
-
 /**
+ * Fetches aws api for given MLB Pitcher
  *
  * @param {String} url AWS API url for fetching pitcher stats.
  * @param {String} name pitcher name.
@@ -23,11 +21,5 @@ const fetchPitcherStats = async (url, name) => {
     return null;
   }
 };
-
-// const name = "Casey Mize";
-
-// const pitcher = await fetchPitcherStats(url, name);
-
-// console.log(pitcher);
 
 export default fetchPitcherStats;

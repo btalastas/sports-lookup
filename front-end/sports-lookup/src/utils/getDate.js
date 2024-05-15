@@ -1,3 +1,8 @@
+/**
+ * Get current date.
+ *
+ * @returns {String} Day of the week, day month year
+ */
 export const getDate = () => {
   const date = new Date();
   const dayOfWeek = date.toLocaleString("en-US", { weekday: "long" }); // "Friday"
