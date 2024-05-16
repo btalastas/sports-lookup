@@ -6,19 +6,21 @@
  * @returns {Object} For each MLB league and their teams ranked.
  */
 export const createLeagueStandings = (standings) => {
-  const league = { national: [], american: [] };
+  const league = { "National League": [], "American League": [] };
 
   Object.keys(standings).forEach((divisionId) => {
     if (standings[divisionId].div_name.includes("National")) {
       standings[divisionId].teams.forEach((team) => {
-        league.national.push(team);
+        league["National League"].push(team);
       });
     } else if (standings[divisionId].div_name.includes("American")) {
       standings[divisionId].teams.forEach((team) => {
-        league.american.push(team);
+        league["American League"].push(team);
       });
     }
   });
+  league["National League"].sort((a, b) => a.league_rank - b.league_rank);
+  league["American League"].sort((a, b) => a.league_rank - b.league_rank);
   return league;
 };
 
