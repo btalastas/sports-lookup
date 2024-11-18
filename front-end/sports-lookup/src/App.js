@@ -4,32 +4,35 @@ import { Container, CircularProgress } from "@mui/material";
 
 import fetchSchedule from "./utils/fetchSchedule.js";
 import fetchStandings from "./utils/fetchStandings.js";
-import Schedule from "./components/Schedule.js";
+import BaseballSchedule from "./components/Schedule.js";
 import Standings from "./components/Standings.js";
 
 function App() {
+  // NBA Schedule
+  const [nbaGames, setNbaGames] = useState([]);
+
   // MLB Schedule
-  const [games, setGames] = useState([]);
+  const [mlbGames, setMlbGames] = useState([]);
 
   // MLB Standings
-  const [standings, setStandings] = useState([]);
+  const [mlbStandings, setMlbStandings] = useState([]);
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const scheduleData = fetchSchedule(
+    const mlbScheduleData = fetchSchedule(
       process.env.REACT_APP_MLB_SCHEDULE_API_URL
     );
 
-    const standingsData = fetchStandings(
+    const mlbStandingsData = fetchStandings(
       process.env.REACT_APP_MLB_STANDINGS_API_URL
     );
 
-    Promise.all([scheduleData, standingsData])
+    Promise.all([mlbScheduleData, mlbStandingsData])
       .then(([response1, response2]) => {
-        setGames(response1);
-        setStandings(response2);
+        setMlbGames(response1);
+        setMlbStandings(response2);
         setLoading(false);
       })
       .catch((error) => {
@@ -53,7 +56,7 @@ function App() {
   }
 
   return (
-    <Schedule games={games} />
+    <BaseballSchedule games={mlbGames} />
     // <Standings standings={standings} />
     // <Container sx={{ height: "100vh" }}>
 

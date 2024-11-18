@@ -1,7 +1,7 @@
 import fetch from "node-fetch";
 
 /**
- * Fetches aws api for MLB games for the current day.
+ * Fetches aws api for sports games for the current day.
  *
  * @param {String} url AWS API url.
  * @returns {Object} JSON of mlb games for current day.
