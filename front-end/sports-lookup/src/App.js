@@ -2,8 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import HeaderNav from "./header-nav.jsx";
 import { Container, CircularProgress } from "@mui/material";
 
-import fetchSchedule from "./utils/fetch_schedule.js";
-import fetchStandings from "./utils/fetch_standings.js";
+import fetchSchedule from "./utils/fetchSchedule.js";
+import fetchStandings from "./utils/fetchStandings.js";
 import Schedule from "./components/Schedule.js";
 import Standings from "./components/Standings.js";
 
@@ -53,8 +53,8 @@ function App() {
   }
 
   return (
-    // <Schedule games={games} />
-    <Standings standings={standings} />
+    <Schedule games={games} />
+    // <Standings standings={standings} />
     // <Container sx={{ height: "100vh" }}>
 
     //   <Container sx={{ padding: 0, width: "300vh" }}>

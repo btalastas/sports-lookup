@@ -5,7 +5,7 @@ import {
   createAllStandings,
   createDivisionStandings,
   createLeagueStandings,
-} from "../utils/standingsUtils.js";
+} from "../../utils/standingsUtils.js";
 
 import DivisionStandings from "./DivisionStandings.js";
 import LeagueStandings from "./LeagueStandings.js";

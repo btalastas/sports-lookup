@@ -9,7 +9,7 @@ import {
   Typography,
 } from "@mui/material";
 
-import { calculatePercentage } from "../utils/standingsUtils.js";
+import { calculatePercentage } from "../../utils/standingsUtils.js";
 
 /**
  * Component to view the standings for all MLB teams.

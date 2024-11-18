@@ -7,7 +7,7 @@ import {
   ListItemText,
 } from "@mui/material";
 
-import { getDate } from "../utils/getDate.js";
+import { getDate } from "../../utils/getDate.js";
 
 /**
  * MLB schedule component that lists the current games, pitchers, and pitcher stats.
