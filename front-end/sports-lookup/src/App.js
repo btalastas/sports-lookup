@@ -4,8 +4,10 @@ import { Container, CircularProgress } from "@mui/material";
 
 import fetchSchedule from "./utils/fetchSchedule.js";
 import fetchStandings from "./utils/fetchStandings.js";
-import BaseballSchedule from "./components/Schedule.js";
-import Standings from "./components/Standings.js";
+import BaseballSchedule from "./components/baseball/BaseballSchedule.js";
+import BaseballStandings from "./components/baseball/BaseballStandings.js";
+
+import BasketballSchedule from "./components/basketball/BasketballSchedule.js";
 
 function App() {
   // NBA Schedule
@@ -29,10 +31,15 @@ function App() {
       process.env.REACT_APP_MLB_STANDINGS_API_URL
     );
 
-    Promise.all([mlbScheduleData, mlbStandingsData])
-      .then(([response1, response2]) => {
+    const nbaScheduleData = fetchStandings(
+      process.env.REACT_APP_NBA_SCHEDULE_API_URL
+    );
+
+    Promise.all([mlbScheduleData, mlbStandingsData, nbaScheduleData])
+      .then(([response1, response2, response3]) => {
         setMlbGames(response1);
         setMlbStandings(response2);
+        setNbaGames(response3);
         setLoading(false);
       })
       .catch((error) => {
@@ -56,7 +63,8 @@ function App() {
   }
 
   return (
-    <BaseballSchedule games={mlbGames} />
+    // <BaseballSchedule games={mlbGames} />
+    <BasketballSchedule games={nbaGames.scoreboard.games} />
     // <Standings standings={standings} />
     // <Container sx={{ height: "100vh" }}>
 

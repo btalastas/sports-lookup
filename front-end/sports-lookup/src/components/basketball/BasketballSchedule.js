@@ -18,20 +18,20 @@ export default function BasketballSchedule({ games }) {
         </Typography>
         {games.length > 0 ? (
           <List>
-            {games.map((game, index) => {
+            {games.map((game, index) => (
               <ListItem key={index} divider>
                 <ListItemText
                   align="center"
                   primary={
                     <>
-                      {`${game.awayTeam.teamCity} ${game.awayTeam.teamName} @ ${game.homeTeam.teamCity} ${game.hometeam.teamName}`}
+                      {`${game.awayTeam.teamCity} ${game.awayTeam.teamName} (${game.awayTeam.wins}-${game.awayTeam.losses}) @ ${game.homeTeam.teamCity} ${game.homeTeam.teamName} (${game.homeTeam.wins}-${game.homeTeam.losses})`}
                       <br />
                       {`${game.gameStatusText}`}
                     </>
                   }
                 ></ListItemText>
-              </ListItem>;
-            })}
+              </ListItem>
+            ))}
           </List>
         ) : (
           <Typography varient="subtitle1" align="center">
