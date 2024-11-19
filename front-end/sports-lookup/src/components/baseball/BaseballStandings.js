@@ -17,7 +17,7 @@ import AllStandings from "./AllStandings.js";
  * @param {Object} param0 MLB standings object from aws api.
  * @returns Table for the given standings
  */
-export default function Standings({ standings }) {
+export default function BaseballStandings({ standings }) {
   const [value, setValue] = useState(0);
 
   const handleChange = (event, newValue) => {

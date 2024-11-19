@@ -15,7 +15,7 @@ import { getDate } from "../../utils/getDate.js";
  * @param {Object} param0 MLB schedule object from aws api.
  * @returns A list of scheduled MLB games for the current date.
  */
-export default function Schedule({ games }) {
+export default function BaseballSchedule({ games }) {
   return (
     <Card raised style={{ margin: "20px", backgroundColor: "#fafafa" }}>
       <CardContent>
@@ -45,7 +45,9 @@ export default function Schedule({ games }) {
             ))}
           </List>
         ) : (
-          <Typography variant="subtitle1">No games scheduled.</Typography>
+          <Typography variant="subtitle1" align="center">
+            No games scheduled.
+          </Typography>
         )}
       </CardContent>
     </Card>
