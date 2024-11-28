@@ -1,13 +1,16 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, Component } from "react";
 import HeaderNav from "./header-nav.jsx";
-import { Container, CircularProgress } from "@mui/material";
+import { Card, CardActionArea, Grid, Typography, CircularProgress  } from "@mui/material";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import fetchSchedule from "./utils/fetchSchedule.js";
 import fetchStandings from "./utils/fetchStandings.js";
 import BaseballSchedule from "./components/baseball/BaseballSchedule.js";
 import BaseballStandings from "./components/baseball/BaseballStandings.js";
+import Home from "./components/home.js";
 
 import BasketballSchedule from "./components/basketball/BasketballSchedule.js";
+import { Link, Outlet } from "react-router-dom";
 
 function App() {
   // NBA Schedule
@@ -61,10 +64,22 @@ function App() {
   if (error) {
     return <p>Error: {error}</p>;
   }
+  
+        
+            
+    
+  
 
   return (
+    <BrowserRouter> 
+      <Routes>
+        <Route path="/" element={<Home />} /> 
+        <Route path="/basketball" element={<BasketballSchedule games={nbaGames.scoreboard.games} />} /> 
+        <Route path="/baseball" element={<BaseballStandings standings={mlbStandings} />} />
+      </Routes>
+    </BrowserRouter>
     // <BaseballSchedule games={mlbGames} />
-    <BasketballSchedule games={nbaGames.scoreboard.games} />
+    // <BasketballSchedule games={nbaGames.scoreboard.games} />
     // <Standings standings={standings} />
     // <Container sx={{ height: "100vh" }}>
 
