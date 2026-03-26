@@ -1,3 +1,6 @@
+from shared.mlb.pitchers import build_pitcher_ref
+
+
 def clean_schedule(games):
     cleaned_games = []
 
@@ -9,8 +12,8 @@ def clean_schedule(games):
             "status": game.get("status"),
             "awayTeam": game.get("away_name"),
             "homeTeam": game.get("home_name"),
-            "awayPitcher": game.get("away_probable_pitcher") or None,
-            "homePitcher": game.get("home_probable_pitcher") or None,
+            "awayPitcher": build_pitcher_ref(game.get("away_probable_pitcher")),
+            "homePitcher": build_pitcher_ref(game.get("home_probable_pitcher")),
             "awayScore": int(game.get("away_score", 0) or 0),
             "homeScore": int(game.get("home_score", 0) or 0),
             "inning": game.get("current_inning") or None,
