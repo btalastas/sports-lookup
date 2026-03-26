@@ -1,0 +1,14 @@
+.venv/
+.env
+.vscode/
+
+
+# Frontend build artifacts and local env files
+frontend
+
+# Backend build artifacts and local outputs
+backend/layer/python/
+backend/layer/layer.zip
+backend/build/
+backend/dist/
+backend/.pytest_cache/
