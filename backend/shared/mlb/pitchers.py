@@ -1,19 +1,5 @@
-from shared.mlb.client import get_player_stat_data, lookup_player
-
-
-def lookup_player_id(player_name):
-    players = lookup_player(player_name)
-
-    if not players:
-        raise ValueError(f"No player found for '{player_name}'")
-
-    exact_match = next(
-        (player for player in players if player.get("fullName") == player_name),
-        None,
-    )
-
-    selected_player = exact_match or players[0]
-    return selected_player["id"]
+from shared.mlb.client import get_player_stat_data
+from shared.mlb.players import lookup_player_id
 
 
 def build_pitcher_ref(player_name):
@@ -50,9 +36,11 @@ def clean_pitcher_stats(raw_stats):
         "firstName": raw_stats.get("first_name"),
         "lastName": raw_stats.get("last_name"),
         "fullName": f"{raw_stats.get('first_name', '')} {raw_stats.get('last_name', '')}".strip(),
+        "nickname": raw_stats.get("nickname"),
         "active": raw_stats.get("active"),
         "currentTeam": raw_stats.get("current_team"),
         "position": raw_stats.get("position"),
+        "lastPlayed": raw_stats.get("last_played"),
         "mlbDebut": raw_stats.get("mlb_debut"),
         "batSide": raw_stats.get("bat_side"),
         "pitchHand": raw_stats.get("pitch_hand"),

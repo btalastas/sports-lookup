@@ -13,7 +13,15 @@ def lambda_handler(event, context):
                 status_code=400,
             )
 
-        pitcher_stats = get_clean_pitcher_stats(int(player_id))
+        try:
+            player_id = int(player_id)
+        except (TypeError, ValueError):
+            return error_response(
+                message="Invalid query parameter: playerId must be an integer",
+                status_code=400,
+            )
+
+        pitcher_stats = get_clean_pitcher_stats(player_id)
         return success_response(pitcher_stats)
 
     except Exception as exc:
