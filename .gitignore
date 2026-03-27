@@ -11,4 +11,5 @@ backend/layer/python/
 backend/layer/layer.zip
 backend/build/
 backend/dist/
-
+backend/**/__pycache__/
+backend/**/*.py[cod]
